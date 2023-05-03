@@ -1,0 +1,192 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/data-latin.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/password_dialog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/main.gd" type="Script" id=3]
+[ext_resource path="res://assets/icons/icons8-info.svg" type="Texture" id=4]
+[ext_resource path="res://assets/icons/icons8-edit.svg" type="Texture" id=5]
+[ext_resource path="res://assets/icons/icons8-plus.svg" type="Texture" id=6]
+[ext_resource path="res://assets/icons/icons8-trash.svg" type="Texture" id=7]
+[ext_resource path="res://assets/icons/icons8-refresh.svg" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="VisibleGUI" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VisibleGUI"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="WelcomeLabel" type="Label" parent="VisibleGUI/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 1 )
+text = "Welcome to PasswordIO!"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VisibleGUI/VBoxContainer/WelcomeLabel"]
+anchor_bottom = 1.0
+
+[node name="InfoButton" type="Button" parent="VisibleGUI/VBoxContainer/WelcomeLabel/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 38.0
+text = "Info"
+icon = ExtResource( 4 )
+
+[node name="RefreshButton" type="Button" parent="VisibleGUI/VBoxContainer/WelcomeLabel/HBoxContainer"]
+margin_left = 82.0
+margin_right = 184.0
+margin_bottom = 38.0
+text = "Refresh"
+icon = ExtResource( 8 )
+
+[node name="PasswordsList" type="ItemList" parent="VisibleGUI/VBoxContainer"]
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 518.0
+size_flags_vertical = 3
+
+[node name="Actions" type="HBoxContainer" parent="VisibleGUI/VBoxContainer"]
+margin_top = 522.0
+margin_right = 984.0
+margin_bottom = 560.0
+alignment = 1
+
+[node name="AddButton" type="Button" parent="VisibleGUI/VBoxContainer/Actions"]
+margin_left = 365.0
+margin_right = 437.0
+margin_bottom = 38.0
+text = "Add"
+icon = ExtResource( 6 )
+
+[node name="EditButton" type="Button" parent="VisibleGUI/VBoxContainer/Actions"]
+margin_left = 441.0
+margin_right = 520.0
+margin_bottom = 38.0
+text = "Edit"
+icon = ExtResource( 5 )
+
+[node name="RemoveButton" type="Button" parent="VisibleGUI/VBoxContainer/Actions"]
+margin_left = 524.0
+margin_right = 618.0
+margin_bottom = 38.0
+text = "Remove"
+icon = ExtResource( 7 )
+
+[node name="AddPasswordDialog" parent="." instance=ExtResource( 2 )]
+window_title = "Add Password..."
+
+[node name="EditPasswordDialog" parent="." instance=ExtResource( 2 )]
+window_title = "Edit Password..."
+
+[node name="RemoveConfirmation" type="ConfirmationDialog" parent="."]
+dialog_text = "Are you sure to remove selected password (No undo!)?"
+
+[node name="InfoDialog" type="AcceptDialog" parent="."]
+window_title = "About PasswordIO"
+
+[node name="TabContainer" type="TabContainer" parent="InfoDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 580.0
+margin_bottom = 376.0
+use_hidden_tabs_for_min_size = true
+
+[node name="About" type="RichTextLabel" parent="InfoDialog/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+bbcode_enabled = true
+bbcode_text = "[center][b]PasswordIO[/b][/center]
+[center][i]Simple and open-source password manager.[/i][/center]
+
+Author: Janosch Lion
+Repository: [url]https://github.com/Janorico/PasswordIO[/url]
+Website: [url]https://janorico.github.io[/url]
+Email: [url=mailto:janorico@posteo.de]janorico@posteo.de[/url]"
+text = "PasswordIO
+Simple and open-source password manager.
+
+Author: Janosch Lion
+Repository: https://github.com/Janorico/PasswordIO
+Website: https://janorico.github.io
+Email: janorico@posteo.de"
+
+[node name="Sources" type="RichTextLabel" parent="InfoDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+bbcode_enabled = true
+bbcode_text = "[center][b]PasswordIO Sources[/b][/center]
+[url=https://icons8.com/icon/63308/info]Info[/url] icon by [url=https://icons8.com]Icons8[/url]
+[url=https://icons8.com/icon/13113/refresh]Refresh[/url] icon by [url=https://icons8.com]Icons8[/url]
+[url=https://icons8.com/icon/63650/plus]Plus[/url] icon by [url=https://icons8.com]Icons8[/url]
+[url=https://icons8.com/icon/12082/edit]Edit[/url] icon by [url=https://icons8.com]Icons8[/url]
+[url=https://icons8.com/icon/13086/trash]Trash[/url] icon by [url=https://icons8.com]Icons8[/url]
+[url=https://icons8.com/icon/63262/checkmark]Checkmark[/url] icon by [url=https://icons8.com]Icons8[/url]
+Font from [url]https://www.1001freefonts.com/data-control.font[/url]"
+text = "PasswordIO Sources
+Info icon by Icons8
+Refresh icon by Icons8
+Plus icon by Icons8
+Edit icon by Icons8
+Trash icon by Icons8
+Checkmark icon by Icons8
+Font from https://www.1001freefonts.com/data-control.font"
+
+[node name="License" type="Label" parent="InfoDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+text = "Simple, open-source password manager.
+Copyright (C) 2023 Janosch Lion
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>."
+
+[connection signal="pressed" from="VisibleGUI/VBoxContainer/WelcomeLabel/HBoxContainer/InfoButton" to="InfoDialog" method="popup_centered"]
+[connection signal="pressed" from="VisibleGUI/VBoxContainer/WelcomeLabel/HBoxContainer/RefreshButton" to="." method="_on_refresh"]
+[connection signal="pressed" from="VisibleGUI/VBoxContainer/Actions/AddButton" to="AddPasswordDialog" method="popup_dialog"]
+[connection signal="pressed" from="VisibleGUI/VBoxContainer/Actions/EditButton" to="." method="_on_edit"]
+[connection signal="pressed" from="VisibleGUI/VBoxContainer/Actions/RemoveButton" to="RemoveConfirmation" method="popup_centered"]
+[connection signal="password_confirmed" from="AddPasswordDialog" to="." method="_on_add"]
+[connection signal="password_confirmed" from="EditPasswordDialog" to="." method="_on_edit_confirmed"]
+[connection signal="confirmed" from="RemoveConfirmation" to="." method="_on_remove"]
+[connection signal="meta_clicked" from="InfoDialog/TabContainer/About" to="." method="_on_rich_meta_clicked"]
+[connection signal="meta_clicked" from="InfoDialog/TabContainer/Sources" to="." method="_on_rich_meta_clicked"]
