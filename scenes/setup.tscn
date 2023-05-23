@@ -222,10 +222,10 @@ margin_right = 1004.0
 margin_bottom = 580.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/Page2"]
-margin_left = 239.0
-margin_top = 235.0
-margin_right = 745.0
-margin_bottom = 325.0
+margin_left = 248.0
+margin_top = 232.0
+margin_right = 736.0
+margin_bottom = 328.0
 
 [node name="InfoLabel" type="Label" parent="GUI/Page2/VBoxContainer"]
 margin_right = 466.0

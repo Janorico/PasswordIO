@@ -146,7 +146,8 @@ bbcode_text = "[center][b]PasswordIO Sources[/b][/center]
 [url=https://icons8.com/icon/12082/edit]Edit[/url] icon by [url=https://icons8.com]Icons8[/url]
 [url=https://icons8.com/icon/13086/trash]Trash[/url] icon by [url=https://icons8.com]Icons8[/url]
 [url=https://icons8.com/icon/63262/checkmark]Checkmark[/url] icon by [url=https://icons8.com]Icons8[/url]
-Font from [url]https://www.1001freefonts.com/data-control.font[/url]"
+Main font: [url=https://www.1001freefonts.com/data-control.font]Data Control[/url]
+Text field font: [url=https://www.jetbrains.com/lp/mono/]JetBrains Mono 2.304[/url]"
 text = "PasswordIO Sources
 Info icon by Icons8
 Refresh icon by Icons8
@@ -154,7 +155,8 @@ Plus icon by Icons8
 Edit icon by Icons8
 Trash icon by Icons8
 Checkmark icon by Icons8
-Font from https://www.1001freefonts.com/data-control.font"
+Main font: Data Control
+Text field font: JetBrains Mono 2.304"
 
 [node name="License" type="Label" parent="InfoDialog/TabContainer"]
 visible = false
