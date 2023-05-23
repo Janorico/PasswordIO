@@ -34,7 +34,7 @@ window/handheld/orientation="sensor"
 
 [gui]
 
-theme/custom_font="res://assets/data_latin.tres"
+theme/custom="res://assets/theme.tres"
 
 [rendering]
 
